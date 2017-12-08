@@ -7,7 +7,7 @@ module.exports.generatePoints = (req, res) => {
 
   generatePlotPoints(points, days, duration, (err, results)=> {
     if(err) {
-      console.log('There was a database error: ', err);
+      console.log('There was an error: ', err);
       res.status(500).send({ error: 'Something went wrong.' });
     } else {
       res.send(results);
