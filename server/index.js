@@ -3,4 +3,4 @@ const port = process.env.PORT || 3000;
 
 app.listen(port);
 
-console.log(`Serving up fresh HTML on port ${port}`);
+console.log(`Serving up fresh HTML at http://localhost:${port}`);

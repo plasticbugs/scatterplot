@@ -1,4 +1,4 @@
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const extractSass = new ExtractTextPlugin(
@@ -10,10 +10,10 @@ module.exports = {
     './src/Main.jsx'
   ],
   plugins: [
-    // new UglifyJSPlugin({
-    //   test: /\.js($|\?)/i,
-    //   sourceMap: true
-    // }),
+    new UglifyJSPlugin({
+      test: /\.js($|\?)/i,
+      sourceMap: true
+    }),
     extractSass
   ],
   output: {

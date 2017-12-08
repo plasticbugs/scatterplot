@@ -26,7 +26,7 @@ const generatePlotPoints = (num, days, maxDuration, callback) => {
     plotPoints.push(point);
   }
   if(plotPoints.length === 0) {
-    callback('No points generated')
+    callback('Error: No points generated')
   } else {
     plotPoints.sort((a,b) => {
       return new Date(a.start_time) - new Date(b.start_time);
@@ -36,27 +36,3 @@ const generatePlotPoints = (num, days, maxDuration, callback) => {
 }
 
 module.exports = generatePlotPoints;
-// }
-// module.exports.search = (query, pageIndex, callback) => {
-//   Tweet.find( { $text: { $search: query, $diacriticSensitive: false } }, {score : { $meta: 'textScore' } } )
-//   .sort( { score: { $meta: 'textScore' } } )
-//   .lean()
-//   .exec( ( err, result ) => {
-//     if(err) {
-//       callback(err);
-//     } else {
-//       console.log("Page #:", pageIndex);
-//       let formattedResult = result.map( tweet => {
-//         let formatted_date = moment(tweet.created_at, 'YYYYMMDD').fromNow();
-//         let formattedTweet = {
-//           user_id: tweet.user_id,
-//           created_at: formatted_date,
-//           text: tweet.text,
-//           _id: tweet._id
-//         }
-//         return formattedTweet;
-//       });
-//       callback(null, formattedResult.slice(pageIndex, pageIndex + 2));
-//     }
-//   });
-// }
