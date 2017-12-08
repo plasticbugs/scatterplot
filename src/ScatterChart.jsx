@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, MarkSeries, DiscreteColorLegend } from 'react-vis';
+import {FlexibleWidthXYPlot, XAxis, YAxis, HorizontalGridLines, MarkSeries, DiscreteColorLegend } from 'react-vis';
 import moment from 'moment';
 import update from 'immutability-helper';
 import axios from 'axios';
@@ -177,14 +177,13 @@ class ScatterChart extends React.Component {
     return (
       <div className="chart-container">
         {this.renderLegend()}
-        <XYPlot
+        <FlexibleWidthXYPlot
           animation={true}
-          size={6}
+          size={7}
           xType="time"
           margin={{left: 100, top:80}}
           colorType="literal"
           strokeType="literal"
-          width={600}
           height={330}>
           <HorizontalGridLines 
             style={{
@@ -200,7 +199,7 @@ class ScatterChart extends React.Component {
           })}
           <XAxis 
             tickFormat={v => `${moment(v).format('MMM Do')}`} 
-            tickTotal={7}
+            tickTotal={6}
             tickSizeInner={0}
             style={{
               ticks: {stroke: '#afafaf', strokeWidth: 1.5},
@@ -218,7 +217,7 @@ class ScatterChart extends React.Component {
               text: {stroke: 'none', fill: '#afafaf', fontWeight: 300, fontFamily: 'Helvetica'}        
             }}
           />
-        </XYPlot>
+        </FlexibleWidthXYPlot>
         {this.renderDateToggle(this.state.plotPoints)}
       </div>)
   }
