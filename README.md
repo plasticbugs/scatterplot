@@ -1,7 +1,7 @@
 # Scatter Plot Visualization
 
 ## Specification:
-Create an application that generates a minimum of 20 plot points. Each point should have a start time, a duration, and a status (pass, fail, or error);
+Create an application that generates a minimum of 20 plot points. Each point should have a start time, a duration, and a status (pass, fail, or error). The color of the plot point should correspond to its status.
 
 The plot points should be selectable/unselectable with a selected/unselected class name appended to the node once clicked.
 
@@ -25,12 +25,15 @@ The plot points should be selectable/unselectable with a selected/unselected cla
 ## Solution:
 I created a React-based application to handle the state of the application and display the scatter plot. For the chart visualization, I used [React-Vis](https://uber.github.io/react-vis/).
 
-Due to time constraints, the number of datapoints, the timespan and the max duration are hardcoded into the state of the application - specifically in the state of the ScatterChart component.
+When the window is resized, the chart shrinks to accommodate.
 
 The server has an api endpoint which sends an array of points to the client which is generated server-side based on the parameters in the request.
 
 I also configured a build system with Webpack to compile/transpile and minify the JS/JSX and CSS.
 
+## Problems Encountered
+
+Because React-Vis generates either SVG or Canvas-based charts, I didn't have as many styling options as I would have liked (hence no dropshadows). The component does get a selected/unselected classname when clicked, but the only styling added is a very subtle stroke.
+
 ## How to use this application:
 When the page loads, the application makes an api request for the plot points. The chart component displays the points and a toggle to set a date range. If the user chooses to select a date range within the earliest and latest start_times, the chart rerenders with only those plot points which fit within the date range.
-
