@@ -1,4 +1,116 @@
 @import './reset.css';
 @import "./node_modules/react-vis/dist/style";
 
+body {
+  font-family: 'Helvetica';
+}
 
+.rv-xy-plot__axis--horizontal .rv-xy-plot__axis__tick {
+  line {
+    transform: translateY(10px);
+  }
+}
+
+.rv-discrete-color-legend.horizontal {
+  text-align: right;
+}
+
+.chart-container {
+  width: 620px;
+}
+
+.rv-discrete-color-legend-item.horizontal .rv-discrete-color-legend-item__title {
+  margin-left: 10px;
+  display: inline;
+  font-family: 'Helvetica'
+}
+
+.rv-discrete-color-legend-item__color {
+  border-radius: 7px;
+  height: 14px;
+  width: 14px;
+}
+
+$pass: #4caf50;
+$fail: #f44336;
+$error: #ffc107;
+
+.point-fail.unselected > circle {
+  stroke: $fail;
+}
+
+.point-fail.selected > circle {
+  stroke: lighten($fail, 10%);
+}
+
+.point-pass.unselected > circle {
+  stroke: $pass
+}
+
+.point-pass.selected > circle {
+  stroke: lighten($pass, 10%);
+}
+
+.point-error.unselected > circle {
+  stroke: $error;
+}
+
+.point-error.selected > circle {
+  stroke: lighten($error, 10%);
+}
+
+.app {
+  margin-top: 100px;
+}
+
+.date-picker {
+  margin-left: 60px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: .8em;
+  a {
+    text-decoration: none;
+    color: #03a9f4;
+    padding-bottom: 10px;
+    line-height: 2em;
+  }
+
+  a:hover {
+    color: lighten(#03a9f4, 20%);
+  }
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+      @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+      @content;
+  }  
+  @-ms-keyframes #{$animation-name} {
+      @content;
+  }
+  @-o-keyframes #{$animation-name} {
+      @content;
+  }  
+  @keyframes #{$animation-name} {
+      @content;
+  }
+}
+
+@mixin animation($str) {
+-webkit-animation: #{$str};
+-moz-animation: #{$str};
+-ms-animation: #{$str};
+-o-animation: #{$str};
+animation: #{$str};      
+}
+
+@include keyframes(fade-in) {
+  0% { opacity: 0; }
+  90% { opacity: 100; }
+}
+
+.rdr-DateRange {
+  @include animation('fade-in 1s');  
+}
