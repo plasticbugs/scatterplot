@@ -10,9 +10,13 @@ The plot points should be selectable/unselectable with a selected/unselected cla
 
 ## How to run this application:
 
-1. To build the application from the source files, and to run the server you will need Yarn and Node.js installed -- installing Yarn will install the latest stable Node if it's not already installed:
+1. To build the application from the source files, and to run the server you will need Yarn and Node.js installed -- installing Yarn will install the latest stable Node if it's not already installed.
+
+On a Mac:
 
 `brew install yarn`
+
+[Instructions for installing Yarn on Linux](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
 
 2. Navigate to the project root and run `yarn` to install all the project's dependencies.
 
