@@ -8,7 +8,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-       < ScatterChart />
+        <h1>Scatter Plot Visualization</h1>
+        < ScatterChart />
       </div>
     );
   }
