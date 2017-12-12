@@ -28,6 +28,7 @@ class ScatterChart extends React.Component {
   }
 
   formatPoint(point) {
+    let point = Object.assign({}, point);
     point.x = new Date(point.start_time);
     point.y = point.duration;
     point.highlight = false;
@@ -86,7 +87,7 @@ class ScatterChart extends React.Component {
   }
 
   toggleHighlight(datapoint, index) {
-    let plotPointsCopy = this.state.plotPoints.slice();
+    let plotPointsCopy = Object.assign([], this.state.plotPoints);
 
     let datapointCopy = Object.assign({}, datapoint);
     datapointCopy.highlight = !datapointCopy.highlight;

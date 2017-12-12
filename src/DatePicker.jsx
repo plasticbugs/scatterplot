@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DateRange } from 'react-date-range';
+import PropTypes from 'prop-types';
 
 class DatePicker extends Component {
   constructor(props) {
@@ -24,3 +25,9 @@ class DatePicker extends Component {
 }
 
 module.exports = DatePicker;
+
+DatePicker.propTypes = {
+	onChange: PropTypes.func,
+	minDate: PropTypes.object,
+	maxDate: PropTypes.object
+}
